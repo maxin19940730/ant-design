@@ -10,25 +10,32 @@ import Contact from './component/Contact';
 import NoMatch from './component/NoMatch';
 
 const routerData = {
-  '/': { component: Inbox },
-  '/about': { component: About },
-  '/contact': { component: Contact },
-  default: { component: NoMatch },
+	'/': { component: Inbox },
+	'/about': { component: About },
+	'/contact': { component: Contact },
+	default: { component: NoMatch },
 };
 const arr = [];
 _.forIn(routerData, (value, key) => {
-  if (key !== 'default') {
-    arr.push(<Route path={key} key={key} exact component={value.component} />);
-  } else {
-    arr.push(<Route component={value.component} />);
-  }
+	if (key !== 'default') {
+		arr.push(<Route path={key} key={key} exact component={value.component} />);
+	} else {
+		arr.push(<Route component={value.component} />);
+	}
 });
+// const App = () => (
+// <HashRouter>
+//   <Switch>
+//   {arr}
+// 		</Switch>
+// 	</HashRouter>
+// );
 const App = () => (
-  <HashRouter>
-    <Switch>
-      {arr}
-    </Switch>
-  </HashRouter>
+	<HashRouter>
+		<Switch>
+			{arr}
+		</Switch>
+	</HashRouter>
 );
 
 export default App;
